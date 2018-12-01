@@ -1,0 +1,62 @@
+<h1 mat-dialog-title>{{ (data?.state != 'Add') ?  'Vehicle Details':'Add Vehicle'}}</h1>
+<mat-dialog-content class="mat-typography" >
+  <div class="row">
+    <div class="col">
+        <mat-form-field class="mr-4">
+          <input matInput placeholder="Enter Selleser Name" [(ngModel)]="data.sellerName" [formControl]="SellecerNameControl" required>
+          <mat-error *ngIf="SellecerNameControl.hasError('required')">Please Enter Selleser Name</mat-error>
+        </mat-form-field>
+      </div>
+
+    <div class="col">
+      <mat-form-field class="mr-4">
+        <input matInput placeholder="Enter Address" [(ngModel)]="data.address" [formControl]="AddressControl" required>
+        <mat-error *ngIf="AddressControl.hasError('required')">Please Enter Address</mat-error>
+      </mat-form-field>
+    </div>
+    
+    <div class="col">
+      <mat-form-field class="mr-4">
+        <input matInput placeholder="Enter City" [(ngModel)]="data.city" [formControl]="CityControl" required>
+        <mat-error *ngIf="CityControl.hasError('required')">Please Enter City</mat-error>
+      </mat-form-field>
+    </div>
+    <div class="col">
+      <mat-form-field class="mr-4">
+        <input matInput placeholder="Enter Phone Number" [(ngModel)]="data.phoneNumber" [formControl]="PhoneControl" required>
+        <mat-error *ngIf="PhoneControl.hasError('required')">Enter Phone Number</mat-error>
+      </mat-form-field>
+    </div>
+    <div class="col">
+      <mat-form-field class="mr-4">
+        <input matInput placeholder="Enter Email" [(ngModel)]="data.email"  [formControl]="EmailControl" required>
+        <mat-error *ngIf="EmailControl.hasError('required')">Please Enter Email</mat-error>
+      </mat-form-field>
+    </div>
+    <div class="col">
+      <mat-form-field class="mr-4">
+        <input matInput placeholder="Enter Vehicle Make" [(ngModel)]="data.vehicleMake"  [formControl]="MakeControl" required>
+        <mat-error *ngIf="MakeControl.hasError('required')">Please Enter Vehicle Make</mat-error>
+      </mat-form-field>
+    </div>
+    <div class="col">
+      <mat-form-field class="mr-4">
+        <input matInput placeholder="Enter Vehicle Model" [(ngModel)]="data.vehicleModel"  [formControl]="ModelControl" required>
+        <mat-error *ngIf="ModelControl.hasError('required')">Please Enter Vehicle Model</mat-error>
+      </mat-form-field>
+    </div>
+    <div class="col">
+      <mat-form-field class="mr-4">
+        <input matInput placeholder="Enter Vehicle Year" [(ngModel)]="data.vehicleYear"  [formControl]="YeraControl" required>
+        <mat-error *ngIf="YeraControl.hasError('required')">Please Enter Vehicle Year</mat-error>
+      </mat-form-field>
+    </div>
+    <div class="col" *ngIf="data?.state != 'Add'">
+      <a href="javascript:void(0)" (click)="NavigateToSite()">{{link}}</a>
+    </div>
+  </div>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button [mat-dialog-close]="'cancel'">Cancel</button>
+  <button mat-button *ngIf="data?.state == 'Add'" [mat-dialog-close]="data" cdkFocusInitial>Add</button>
+</mat-dialog-actions>
