@@ -33,43 +33,46 @@ export class AddDialogComponent {
   EmailControl = new FormControl('', [Validators.required,Validators.pattern(/^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/)]);
   MakeControl = new FormControl('', [Validators.required, Validators.maxLength(15)]);
   ModelControl = new FormControl('', [Validators.required, Validators.maxLength(15)]);
-  YearControl = new FormControl('', [Validators.required, Validators.maxLength(4)]);
+  YearControl = new FormControl('', [Validators.required, Validators.maxLength(4),Validators.minLength(4)]);
 
-  isButtonDisbled(): boolean{
+  isButtonDisbled():boolean{
+    return this.checkValues() || this.checkError();
+  }
+  checkValues(): boolean{
     let res = true
     if(this.SellerNameControl.value && this.AddressControl.value && this.CityControl.value &&
       this.PhoneControl.value && this.EmailControl.value && this.MakeControl.value
       && this.ModelControl.value && this.YearControl.value)
       res =  false;
-    if(this.SellerNameHasError() || this.AddressHasError() || this.CityHasError() ||
-      this.PhoneHasError() || this.EmailHasError() || this.MakeHasError()
-      || this.ModelHasError() || this.YearHasError())
-      res =  false;
     return res;
+  }
+  checkError(): boolean{
+    return this.SellerNameHasError() || this.AddressHasError() || this.CityHasError() || this.PhoneHasError()
+    || this.MakeHasError() || this.ModelHasError() || this.YearHasError();
   }
   SellerNameHasError(){
     return this.SellerNameControl.hasError('maxlength')? true:false;
   }
   AddressHasError(){
-    return this.SellerNameControl.hasError('maxlength')? true:false;
+    return this.AddressControl.hasError('maxlength')? true:false;
   }
   CityHasError(){
-    return this.SellerNameControl.hasError('maxlength')? true:false;
+    return this.CityControl.hasError('maxlength')? true:false;
   }
   PhoneHasError(){
-    return this.SellerNameControl.hasError('pattern')? true:false;
+    return this.PhoneControl.hasError('pattern')? true:false;
   }
   EmailHasError(){
-    return this.SellerNameControl.hasError('pattern')? true:false;
+    return this.EmailControl.hasError('pattern')? true:false;
   }
   MakeHasError(){
-    return this.SellerNameControl.hasError('maxlength')? true:false;
+    return this.MakeControl.hasError('maxlength')? true:false;
   }
   ModelHasError(){
-    return this.SellerNameControl.hasError('maxlength')? true:false;
+    return this.ModelControl.hasError('maxlength')? true:false;
   }
   YearHasError(){
-    return this.SellerNameControl.hasError('maxlength')? true:false;
+    return this.YearControl.hasError('maxlength')? true:false;
   }
   onNoClick(): void {
     this.dialogRef.close();
