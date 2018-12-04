@@ -43,6 +43,8 @@ export class AppComponent {
 
     dialogRef.afterClosed().subscribe(result => {
         result.state='';
+        result.vehicleMake = result.vehicleMake.toLowerCase().replace(/ /g, '-');
+        result.vehicleModel = result.vehicleModel.toLowerCase().replace(/ /g, '-');
         this.database.SaveVehicle(result);
         this.dataSource = this.database.GetSavedVehicles();
     });
