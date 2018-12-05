@@ -59,21 +59,28 @@ namespace ClassLibrary1
       driver.FindElement(By.Id("sn")).Click();
       driver.FindElement(By.Id("sn")).Clear();
       driver.FindElement(By.Id("sn")).SendKeys("Hari");
+      driver.FindElement(By.Id("address")).Click();
       driver.FindElement(By.Id("address")).Clear();
-      driver.FindElement(By.Id("address")).SendKeys("Old Carriage");
+      driver.FindElement(By.Id("address")).SendKeys("Old carriage");
+      driver.FindElement(By.Id("city")).Click();
       driver.FindElement(By.Id("city")).Clear();
       driver.FindElement(By.Id("city")).SendKeys("Kitchener");
+      driver.FindElement(By.Id("phone")).Click();
       driver.FindElement(By.Id("phone")).Clear();
       driver.FindElement(By.Id("phone")).SendKeys("5197211259");
+      driver.FindElement(By.Id("email")).Click();
       driver.FindElement(By.Id("email")).Clear();
       driver.FindElement(By.Id("email")).SendKeys("hari@abc.com");
+      driver.FindElement(By.Id("make")).Click();
       driver.FindElement(By.Id("make")).Clear();
       driver.FindElement(By.Id("make")).SendKeys("BMW");
+      driver.FindElement(By.Id("model")).Click();
       driver.FindElement(By.Id("model")).Clear();
       driver.FindElement(By.Id("model")).SendKeys("X1");
+      driver.FindElement(By.Id("year")).Click();
       driver.FindElement(By.Id("year")).Clear();
-      driver.FindElement(By.Id("year")).SendKeys("2018");
-      driver.FindElement(By.XPath("(.//*[normalize-space(text()) and normalize-space(.)='Cancel'])[1]/following::button[1]")).Click();
+      driver.FindElement(By.Id("year")).SendKeys("2016");
+      driver.FindElement(By.Id("addBtn")).Click();
       Assert.AreEqual("BMW", driver.FindElement(By.LinkText("BMW")).Text);
     }
 

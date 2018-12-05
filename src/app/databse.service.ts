@@ -14,7 +14,6 @@ export interface VehicleInfo {
 
 const ELEMENT_DATA: VehicleInfo[] = [
   {sellerName: 'Hari', address: '100 Old carriage DR', city:'Kitchener', phoneNumber: '5197211259', email: 'hari@abc.com', vehicleMake:'Ford',vehicleModel:'Mustang-V6',vehicleYear:'2012'},
-  {sellerName: 'Rahul', address: 'Conestoga College', city:'Waterloo', phoneNumber: '1234567890', email: 'rah@abc.com', vehicleMake:'Hyundai',vehicleModel:'Azera',vehicleYear:'2017'},
   {sellerName: 'Robart', address: 'Old carriage DR', city:'Kitchener', phoneNumber: '0980980989', email: 'robart@abc.com', vehicleMake:'Jaguar',vehicleModel:'F-TYPE',vehicleYear:'2018'},
   {sellerName: 'Rose', address: 'Fairview Park', city:'Toronto', phoneNumber: '1231231234', email: 'rose@cba.com', vehicleMake:'Dodge',vehicleModel:'Challenger',vehicleYear:'2018'}
 ];

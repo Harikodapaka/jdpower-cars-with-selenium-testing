@@ -45,6 +45,8 @@ export class AppComponent {
         result.state='';
         result.vehicleMake = result.vehicleMake.toLowerCase().replace(/ /g, '-');
         result.vehicleModel = result.vehicleModel.toLowerCase().replace(/ /g, '-');
+        result.vehicleMake = result.vehicleMake.toUpperCase();
+        
         this.database.SaveVehicle(result);
         this.dataSource = this.database.GetSavedVehicles();
     });
